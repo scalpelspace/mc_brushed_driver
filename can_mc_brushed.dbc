@@ -1,0 +1,108 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: MC_BRUSHED LISTENER COMMANDER REQUESTER
+
+
+BO_ 32 state: 1 MC_BRUSHED
+ SG_ system_state : 0|8@1+ (1,0) [0|255] ""  LISTENER
+
+BO_ 64 command_brushed_torque: 8 COMMANDER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
+ SG_ control_mode : 8|3@1+ (1,0) [0|7] ""  MC_BRUSHED
+ SG_ enable : 11|1@1+ (1,0) [0|1] ""  MC_BRUSHED
+ SG_ clear_faults : 12|1@1+ (1,0) [0|1] ""  MC_BRUSHED
+ SG_ reserved0 : 13|3@1+ (1,0) [0|7] ""  MC_BRUSHED
+ SG_ target_torque : 16|32@1- (0.0001,0) [-214748.3648|214748.3647] "Nm"  MC_BRUSHED
+ SG_ reserved1 : 48|16@1+ (1,0) [0|65535] ""  MC_BRUSHED
+
+BO_ 96 command_brushed_velocity: 8 COMMANDER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
+ SG_ control_mode : 8|3@1+ (1,0) [0|7] ""  MC_BRUSHED
+ SG_ enable : 11|1@1+ (1,0) [0|1] ""  MC_BRUSHED
+ SG_ clear_faults : 12|1@1+ (1,0) [0|1] ""  MC_BRUSHED
+ SG_ reserved0 : 13|3@1+ (1,0) [0|7] ""  MC_BRUSHED
+ SG_ target_velocity : 16|32@1- (0.001,0) [-2147483.648|2147483.647] "rad/s"  MC_BRUSHED
+ SG_ reserved1 : 48|16@1+ (1,0) [0|65535] ""  MC_BRUSHED
+
+BO_ 128 command_brushed_position: 8 COMMANDER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
+ SG_ control_mode : 8|3@1+ (1,0) [0|7] ""  MC_BRUSHED
+ SG_ enable : 11|1@1+ (1,0) [0|1] ""  MC_BRUSHED
+ SG_ clear_faults : 12|1@1+ (1,0) [0|1] ""  MC_BRUSHED
+ SG_ reserved0 : 13|3@1+ (1,0) [0|7] ""  MC_BRUSHED
+ SG_ target_position : 16|32@1- (0.001,0) [-2147483.648|2147483.647] "rad"  MC_BRUSHED
+ SG_ reserved1 : 48|16@1+ (1,0) [0|65535] ""  MC_BRUSHED
+
+BO_ 160 relative_encoder: 4 MC_BRUSHED
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  LISTENER
+ SG_ raw_position : 8|16@1+ (1,0) [0|16383] "count"  LISTENER
+ SG_ status : 24|8@1+ (1,0) [0|255] ""  LISTENER
+
+BO_ 192 datetime_set: 7 COMMANDER
+ SG_ year : 0|8@1+ (1,0) [0|99] "year"  MC_BRUSHED
+ SG_ month : 8|8@1+ (1,0) [1|12] "month"  MC_BRUSHED
+ SG_ date : 16|8@1+ (1,0) [1|31] "day"  MC_BRUSHED
+ SG_ weekday : 24|8@1+ (1,0) [1|7] "weekday"  MC_BRUSHED
+ SG_ hours : 32|8@1+ (1,0) [0|23] "hour"  MC_BRUSHED
+ SG_ minutes : 40|8@1+ (1,0) [0|59] "min"  MC_BRUSHED
+ SG_ seconds : 48|8@1+ (1,0) [0|59] "sec"  MC_BRUSHED
+
+BO_ 224 datetime_get: 0 REQUESTER
+
+BO_ 256 datetime_get_response: 7 MC_BRUSHED
+ SG_ year : 0|8@1+ (1,0) [0|99] "year"  REQUESTER
+ SG_ month : 8|8@1+ (1,0) [1|12] "month"  REQUESTER
+ SG_ date : 16|8@1+ (1,0) [1|31] "day"  REQUESTER
+ SG_ weekday : 24|8@1+ (1,0) [1|7] "weekday"  REQUESTER
+ SG_ hours : 32|8@1+ (1,0) [0|23] "hour"  REQUESTER
+ SG_ minutes : 40|8@1+ (1,0) [0|59] "min"  REQUESTER
+ SG_ seconds : 48|8@1+ (1,0) [0|59] "sec"  REQUESTER
+
+BO_ 960 version_get: 0 REQUESTER
+
+BO_ 992 version_get_response: 4 MC_BRUSHED
+ SG_ version_major : 0|8@1+ (1,0) [0|255] "major"  REQUESTER
+ SG_ version_minor : 8|8@1+ (1,0) [0|255] "minor"  REQUESTER
+ SG_ version_patch : 16|8@1+ (1,0) [0|255] "patch"  REQUESTER
+ SG_ version_identifier : 24|8@1+ (1,0) [0|255] "ascii"  REQUESTER
+
+
+
+BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "MultiplexExtEnabled" "No";
+BA_DEF_DEF_  "BusType" "CAN";
+
