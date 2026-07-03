@@ -39,10 +39,10 @@ BU_: MC_BRUSHED LISTENER COMMANDER REQUESTER
 BO_ 32 state: 1 MC_BRUSHED
  SG_ system_state : 0|8@1+ (1,0) [0|255] ""  LISTENER
 
-BO_ 64 fault: 2 MC_BRUSHED
- SG_ fault_reg : 0|7@1+ (1,0) [0|127] ""  LISTENER
- SG_ latched : 7|1@1+ (1,0) [0|1] ""  LISTENER
- SG_ diag_reg : 8|8@1+ (1,0) [0|255] ""  LISTENER
+BO_ 64 fault: 3 MC_BRUSHED
+ SG_ fault : 0|8@1+ (1,0) [0|255] ""  LISTENER
+ SG_ drv8873s_fault_reg : 8|8@1+ (1,0) [0|127] ""  LISTENER
+ SG_ drv8873s_diag_reg : 16|8@1+ (1,0) [0|255] ""  LISTENER
 
 BO_ 96 command_brushed_torque: 8 COMMANDER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
