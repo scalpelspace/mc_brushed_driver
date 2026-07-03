@@ -36,7 +36,7 @@ BS_:
 BU_: MC_BRUSHED LISTENER COMMANDER REQUESTER
 
 
-BO_ 32 state: 1 MC_BRUSHED
+BO_ 32 state: 4 MC_BRUSHED
  SG_ system_state : 0|8@1+ (1,0) [0|255] ""  LISTENER
  SG_ fault : 8|8@1+ (1,0) [0|255] ""  LISTENER
  SG_ drv8873s_fault_reg : 16|8@1+ (1,0) [0|255] ""  LISTENER
