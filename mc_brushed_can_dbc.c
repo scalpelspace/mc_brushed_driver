@@ -18,7 +18,7 @@ const can_message_t dbc_messages[] = {
         .dlc = 1,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
         .tx_handler = 0, // (can_tx_handler_t)my_tx_handler_func,
-        .signal_count = 1,
+        .signal_count = 4,
         .signals =
             {
                 {
@@ -32,21 +32,9 @@ const can_message_t dbc_messages[] = {
                     .min_value = 0.0f,
                     .max_value = 255.0f,
                 },
-            },
-    },
-    {
-        .name = "fault",
-        .message_id = 64,
-        .id_mask = 0xFFFFFFFF,
-        .dlc = 3,
-        .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
-        .tx_handler = 0, // (can_tx_handler_t)my_tx_handler_func,
-        .signal_count = 3,
-        .signals =
-            {
                 {
                     .name = "fault",
-                    .start_bit = 0,
+                    .start_bit = 8,
                     .bit_length = 8,
                     .byte_order = CAN_LITTLE_ENDIAN,
                     .is_signed = false,
@@ -57,18 +45,18 @@ const can_message_t dbc_messages[] = {
                 },
                 {
                     .name = "drv8873s_fault_reg",
-                    .start_bit = 8,
+                    .start_bit = 16,
                     .bit_length = 8,
                     .byte_order = CAN_LITTLE_ENDIAN,
                     .is_signed = false,
                     .scale = 1.0f,
                     .offset = 0.0f,
                     .min_value = 0.0f,
-                    .max_value = 127.0f,
+                    .max_value = 255.0f,
                 },
                 {
                     .name = "drv8873s_diag_reg",
-                    .start_bit = 16,
+                    .start_bit = 24,
                     .bit_length = 8,
                     .byte_order = CAN_LITTLE_ENDIAN,
                     .is_signed = false,
@@ -81,7 +69,7 @@ const can_message_t dbc_messages[] = {
     },
     {
         .name = "command_brushed_torque",
-        .message_id = 96,
+        .message_id = 64,
         .id_mask = 0xFFFFFFFF,
         .dlc = 8,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
@@ -170,7 +158,7 @@ const can_message_t dbc_messages[] = {
     },
     {
         .name = "command_brushed_velocity",
-        .message_id = 128,
+        .message_id = 96,
         .id_mask = 0xFFFFFFFF,
         .dlc = 8,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
@@ -259,7 +247,7 @@ const can_message_t dbc_messages[] = {
     },
     {
         .name = "command_brushed_position",
-        .message_id = 160,
+        .message_id = 128,
         .id_mask = 0xFFFFFFFF,
         .dlc = 8,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
@@ -348,7 +336,7 @@ const can_message_t dbc_messages[] = {
     },
     {
         .name = "relative_encoder",
-        .message_id = 192,
+        .message_id = 160,
         .id_mask = 0xFFFFFFFF,
         .dlc = 4,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
@@ -393,7 +381,7 @@ const can_message_t dbc_messages[] = {
     },
     {
         .name = "controls_tune",
-        .message_id = 224,
+        .message_id = 192,
         .id_mask = 0xFFFFFFFF,
         .dlc = 8,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
@@ -460,7 +448,7 @@ const can_message_t dbc_messages[] = {
     },
     {
         .name = "controls_tune_get",
-        .message_id = 256,
+        .message_id = 224,
         .id_mask = 0xFFFFFFFF,
         .dlc = 1,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
@@ -483,7 +471,7 @@ const can_message_t dbc_messages[] = {
     },
     {
         .name = "controls_tune_get_response",
-        .message_id = 288,
+        .message_id = 256,
         .id_mask = 0xFFFFFFFF,
         .dlc = 6,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
@@ -528,7 +516,7 @@ const can_message_t dbc_messages[] = {
     },
     {
         .name = "controls_diagnostic",
-        .message_id = 320,
+        .message_id = 288,
         .id_mask = 0xFFFFFFFF,
         .dlc = 8,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
@@ -584,7 +572,7 @@ const can_message_t dbc_messages[] = {
     },
     {
         .name = "datetime_set",
-        .message_id = 352,
+        .message_id = 320,
         .id_mask = 0xFFFFFFFF,
         .dlc = 7,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
@@ -673,7 +661,7 @@ const can_message_t dbc_messages[] = {
     },
     {
         .name = "datetime_get",
-        .message_id = 384,
+        .message_id = 352,
         .id_mask = 0xFFFFFFFF,
         .dlc = 0,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
@@ -686,7 +674,7 @@ const can_message_t dbc_messages[] = {
     },
     {
         .name = "datetime_get_response",
-        .message_id = 416,
+        .message_id = 384,
         .id_mask = 0xFFFFFFFF,
         .dlc = 7,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
