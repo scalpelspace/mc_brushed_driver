@@ -69,9 +69,10 @@ BO_ 128 command_brushed_position: 8 COMMANDER
  SG_ target_position : 16|32@1- (0.001,0) [-2147483.648|2147483.647] "rad"  MC_BRUSHED
  SG_ reserved1 : 48|16@1+ (1,0) [0|65535] ""  MC_BRUSHED
 
-BO_ 160 encoder: 8 MC_BRUSHED
- SG_ raw_count : 0|32@1- (1,0) [-2147483648|2147483647] "count"  LISTENER
- SG_ position : 32|32@1- (0.001,0) [-2147483.648|2147483.647] "rad"  LISTENER
+BO_ 160 sensor: 8 MC_BRUSHED
+ SG_ drv8873s_ipropi : 0|16@1+ (1,0) [0|4095] "count"  LISTENER
+ SG_ encoder_raw_count : 16|16@1- (1,0) [-32768|32767] "count"  LISTENER
+ SG_ encoder_position : 32|32@1- (0.001,0) [-2147483.648|2147483.647] "rad"  LISTENER
 
 BO_ 192 controls_tune: 8 COMMANDER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
