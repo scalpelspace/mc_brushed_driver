@@ -65,7 +65,7 @@ static const can_signal_t state_signals[4] = {
     },
 };
 
-static const can_signal_t command_brushed_torque_signals[9] = {
+static const can_signal_t command_brushed_signals[9] = {
     {
         .name = "node_id",
         .start_bit = 0,
@@ -185,7 +185,7 @@ static const can_signal_t command_brushed_torque_signals[9] = {
     },
 };
 
-static const can_signal_t command_stepper_zero_signals[1] = {
+static const can_signal_t command_brushed_zero_signals[1] = {
     {
         .name = "node_id",
         .start_bit = 0,
@@ -957,23 +957,23 @@ const can_message_t dbc_messages[] = {
         .signal_count = 4,
     },
     {
-        .name = "command_brushed_torque",
+        .name = "command_brushed",
         .message_id = 64,
         .id_mask = 0xFFFFFFFF,
         .dlc = 8,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
         .tx_handler = 0, // (can_tx_handler_t)my_tx_handler_func,
-        .signals = command_brushed_torque_signals,
+        .signals = command_brushed_signals,
         .signal_count = 9,
     },
     {
-        .name = "command_stepper_zero",
+        .name = "command_brushed_zero",
         .message_id = 96,
         .id_mask = 0xFFFFFFFF,
         .dlc = 1,
         .rx_handler = 0, // (can_rx_handler_t)my_rx_handler_func,
         .tx_handler = 0, // (can_tx_handler_t)my_tx_handler_func,
-        .signals = command_stepper_zero_signals,
+        .signals = command_brushed_zero_signals,
         .signal_count = 1,
     },
     {

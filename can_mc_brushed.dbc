@@ -33,7 +33,7 @@ NS_ :
 
 BS_:
 
-BU_: MC_BRUSHED LISTENER COMMANDER REQUESTER MC_STEPPER
+BU_: MC_BRUSHED LISTENER COMMANDER REQUESTER
 
 
 BO_ 32 state: 4 MC_BRUSHED
@@ -42,7 +42,7 @@ BO_ 32 state: 4 MC_BRUSHED
  SG_ drv8873s_fault_reg : 16|8@1+ (1,0) [0|255] ""  LISTENER
  SG_ drv8873s_diag_reg : 24|8@1+ (1,0) [0|255] ""  LISTENER
 
-BO_ 64 command_brushed_torque: 8 COMMANDER
+BO_ 64 command_brushed: 8 COMMANDER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
  SG_ control_mode M : 8|3@1+ (1,0) [0|7] ""  MC_BRUSHED
  SG_ enable : 11|1@1+ (1,0) [0|1] ""  MC_BRUSHED
@@ -53,8 +53,8 @@ BO_ 64 command_brushed_torque: 8 COMMANDER
  SG_ target_position_rel m2 : 16|32@1- (0.001,0) [-2147483.648|2147483.647] "rad"  MC_BRUSHED
  SG_ target_position_ol m3 : 16|32@1- (0.001,0) [-2147483.648|2147483.647] "rad"  MC_BRUSHED
 
-BO_ 96 command_stepper_zero: 1 COMMANDER
- SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
+BO_ 96 command_brushed_zero: 1 COMMANDER
+ SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
 
 BO_ 128 sensor: 8 MC_BRUSHED
  SG_ drv8873s_ipropi : 0|16@1+ (1,0) [0|4095] "count"  LISTENER
@@ -121,9 +121,9 @@ BO_ 352 datetime_get_response: 7 MC_BRUSHED
  SG_ seconds : 48|8@1+ (1,0) [0|59] "sec"  REQUESTER
 
 BO_ 384 rgb_led_set: 3 REQUESTER
- SG_ red : 0|8@1+ (1,0) [0|255] ""  MC_STEPPER
- SG_ green : 8|8@1+ (1,0) [0|255] ""  MC_STEPPER
- SG_ blue : 16|8@1+ (1,0) [0|255] ""  MC_STEPPER
+ SG_ red : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
+ SG_ green : 8|8@1+ (1,0) [0|255] ""  MC_BRUSHED
+ SG_ blue : 16|8@1+ (1,0) [0|255] ""  MC_BRUSHED
 
 BO_ 960 version_get: 0 REQUESTER
 
