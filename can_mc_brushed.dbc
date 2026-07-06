@@ -42,7 +42,7 @@ BO_ 32 state: 4 MC_BRUSHED
  SG_ drv8873s_fault_reg : 16|8@1+ (1,0) [0|255] ""  LISTENER
  SG_ drv8873s_diag_reg : 24|8@1+ (1,0) [0|255] ""  LISTENER
 
-BO_ 64 command_brushed: 8 COMMANDER
+BO_ 64 command_brushed: 6 COMMANDER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
  SG_ control_mode M : 8|3@1+ (1,0) [0|7] ""  MC_BRUSHED
  SG_ enable : 11|1@1+ (1,0) [0|1] ""  MC_BRUSHED
