@@ -65,7 +65,7 @@ BO_ 160 controls_diagnostic: 8 MC_BRUSHED
  SG_ torque_error : 0|16@1- (0.001,0) [-32.768|32.767] "Nm"  LISTENER
  SG_ velocity_error : 16|16@1- (0.001,0) [-32.768|32.767] "rad/s"  LISTENER
  SG_ position_error : 32|16@1- (0.0001,0) [-3.2768|3.2767] "rad"  LISTENER
- SG_ velocity_command : 48|16@1- (0.001,0) [-32.768|32.767] "rad/s"  LISTENER
+ SG_ duty_command : 48|16@1- (0.0001,0) [-1|1] ""  LISTENER
 
 BO_ 192 controls_config_set: 8 COMMANDER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
