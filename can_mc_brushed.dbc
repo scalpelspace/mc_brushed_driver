@@ -51,7 +51,7 @@ BO_ 64 command_brushed: 6 COMMANDER
  SG_ target_torque m1 : 16|32@1- (0.0001,0) [-214748.3648|214748.3647] "Nm"  MC_BRUSHED
  SG_ target_velocity m2 : 16|32@1- (0.001,0) [-2147483.648|2147483.647] "rad/s"  MC_BRUSHED
  SG_ target_position_rel m3 : 16|32@1- (0.001,0) [-2147483.648|2147483.647] "rad"  MC_BRUSHED
- SG_ target_position_ol m4 : 16|32@1- (0.001,0) [-2147483.648|2147483.647] "rad"  MC_BRUSHED
+ SG_ target_hbridge_ol m4 : 16|32@1- (0.0001,0) [-1|1] ""  MC_BRUSHED
 
 BO_ 96 command_brushed_zero: 1 COMMANDER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
