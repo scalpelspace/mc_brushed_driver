@@ -142,7 +142,7 @@ static const can_signal_t command_brushed_signals[9] = {
         .min_value = -214748.3648f,
         .max_value = 214748.3647f,
         .mux_role = CAN_MUX_DEPENDENT,
-        .mux_value = 0,
+        .mux_value = 1,
     },
     {
         .name = "target_velocity",
@@ -155,7 +155,7 @@ static const can_signal_t command_brushed_signals[9] = {
         .min_value = -2147483.648f,
         .max_value = 2147483.647f,
         .mux_role = CAN_MUX_DEPENDENT,
-        .mux_value = 1,
+        .mux_value = 2,
     },
     {
         .name = "target_position_rel",
@@ -168,7 +168,7 @@ static const can_signal_t command_brushed_signals[9] = {
         .min_value = -2147483.648f,
         .max_value = 2147483.647f,
         .mux_role = CAN_MUX_DEPENDENT,
-        .mux_value = 2,
+        .mux_value = 3,
     },
     {
         .name = "target_position_ol",
@@ -181,7 +181,7 @@ static const can_signal_t command_brushed_signals[9] = {
         .min_value = -2147483.648f,
         .max_value = 2147483.647f,
         .mux_role = CAN_MUX_DEPENDENT,
-        .mux_value = 3,
+        .mux_value = 4,
     },
 };
 
