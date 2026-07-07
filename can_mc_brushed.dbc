@@ -87,18 +87,18 @@ BO_ 224 controls_config_get: 2 REQUESTER
  SG_ reserved0 : 11|5@1+ (1,0) [0|31] ""  MC_BRUSHED
 
 BO_ 256 controls_config_response: 8 MC_BRUSHED
- SG_ reserved0 : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
- SG_ controller M : 8|3@1+ (1,0) [0|7] ""  MC_BRUSHED
- SG_ reserved1 : 11|5@1+ (1,0) [0|31] ""  MC_BRUSHED
- SG_ torque_k_p m0 : 16|16@1+ (0.001,0) [0|65.535] ""  MC_BRUSHED
- SG_ velocity_k_p m1 : 16|16@1+ (0.001,0) [0|65.535] ""  MC_BRUSHED
- SG_ position_k_p m2 : 16|16@1+ (0.001,0) [0|65.535] ""  MC_BRUSHED
- SG_ torque_k_i m0 : 32|16@1+ (0.001,0) [0|65.535] ""  MC_BRUSHED
- SG_ velocity_k_i m1 : 32|16@1+ (0.001,0) [0|65.535] ""  MC_BRUSHED
- SG_ position_k_i m2 : 32|16@1+ (0.001,0) [0|65.535] ""  MC_BRUSHED
- SG_ torque_k_d m0 : 48|16@1+ (0.001,0) [0|65.535] ""  MC_BRUSHED
- SG_ velocity_k_d m1 : 48|16@1+ (0.001,0) [0|65.535] ""  MC_BRUSHED
- SG_ position_k_d m2 : 48|16@1+ (0.001,0) [0|65.535] ""  MC_BRUSHED
+ SG_ reserved0 : 0|8@1+ (1,0) [0|255] ""  REQUESTER
+ SG_ controller M : 8|3@1+ (1,0) [0|7] ""  REQUESTER
+ SG_ reserved1 : 11|5@1+ (1,0) [0|31] ""  REQUESTER
+ SG_ torque_k_p m0 : 16|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
+ SG_ velocity_k_p m1 : 16|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
+ SG_ position_k_p m2 : 16|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
+ SG_ torque_k_i m0 : 32|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
+ SG_ velocity_k_i m1 : 32|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
+ SG_ position_k_i m2 : 32|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
+ SG_ torque_k_d m0 : 48|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
+ SG_ velocity_k_d m1 : 48|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
+ SG_ position_k_d m2 : 48|16@1+ (0.001,0) [0|65.535] ""  REQUESTER
 
 BO_ 288 datetime_set: 7 COMMANDER
  SG_ year : 0|8@1+ (1,0) [0|99] "year"  MC_BRUSHED
