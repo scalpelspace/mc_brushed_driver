@@ -24,16 +24,16 @@ the [mc_brushed](https://github.com/scalpelspace/mc_brushed) firmware.
 
 ## 1 Overview
 
-CAN drivers are included in the [mc_brushed_driver.h](mc_brushed_driver.h) file
-for simple implementation.
+CAN drivers are included in the [`mc_brushed_driver.h`](mc_brushed_driver.h)
+file for simple implementation.
 
 This repository defines the CAN **protocol contract** for MC Brushed: message
-IDs, DLCs, signal layouts and scaling. The source of truth is the DBC file:
-[can_mc_brushed.dbc](can_mc_brushed.dbc).
+IDs, DLCs, signal layouts and scaling. The source of truth is the DBC file: [
+`can_mc_brushed.dbc`](can_mc_brushed.dbc).
 
 > **Note:** Behavioural semantics (controls state machine, safety gating of
 > config commands, telemetry rates, fault handling) are owned by the
-> [mc_brushed](https://github.com/scalpelspace/mc_brushed) firmware and are
+> [`mc_brushed`](https://github.com/scalpelspace/mc_brushed) firmware and are
 > documented there.
 
 ---
