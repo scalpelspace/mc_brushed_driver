@@ -1,7 +1,7 @@
 # mc_brushed_driver
 
 Low level communication drivers for the brushed motor controller board running
-the [mc_brushed](https://github.com/scalpelspace/mc_brushed) firmware.
+the [`mc_brushed`](https://github.com/scalpelspace/mc_brushed) firmware.
 
 ---
 
