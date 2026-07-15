@@ -16,6 +16,7 @@ the [`mc_brushed`](https://github.com/scalpelspace/mc_brushed) firmware.
     * [3.1 Message Table](#31-message-table)
     * [3.2 Muxed Setpoint (`command_brushed`)](#32-muxed-setpoint-command_brushed)
     * [3.3 Muxed PID Gains (`controls_config_*`)](#33-muxed-pid-gains-controls_config_)
+    * [3.4 Encoder Configuration (`encoder_config_*`)](#34-encoder-configuration-encoder_config_)
 <!-- TOC -->
 
 </details>
@@ -61,22 +62,25 @@ and node IDs are assigned at runtime via the dynamic allocation protocol.
 Direction is from the MC Brushed node's perspective: **TX** = transmitted by
 MC Brushed, **RX** = received by MC Brushed.
 
-| Base ID (hex) | Message                    | DLC | Direction | Description                                                                                                                                  |
-|--------------:|----------------------------|----:|-----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|          0x20 | `state`                    |   4 | TX        | Periodic system state, fault byte and DRV8873S fault/diag registers.                                                                         |
-|          0x40 | `command_brushed`          |   6 | RX        | Control mode, enable, clear faults and muxed setpoint (see [3.2 Muxed Setpoint (`command_brushed`)](#32-muxed-setpoint-command_brushed)).    |
-|          0x60 | `command_brushed_zero`     |   1 | RX        | Software zero of the position reference.                                                                                                     |
-|          0x80 | `sensor`                   |   8 | TX        | IPROPI current sense count, encoder raw count and unwrapped position.                                                                        |
-|          0xA0 | `controls_diagnostic`      |   8 | TX        | Control loop internals: torque/velocity/position errors and duty command.                                                                    |
-|          0xC0 | `controls_config_set`      |   8 | RX        | Set closed loop PID gains for a muxed cascade stage (see [3.3 Muxed PID Gains (`controls_config_*`)](#33-muxed-pid-gains-controls_config_)). |
-|          0xE0 | `controls_config_get`      |   2 | RX        | Request PID gains for a cascade stage.                                                                                                       |
-|         0x100 | `controls_config_response` |   8 | TX        | Response to `controls_config_get`.                                                                                                           |
-|         0x120 | `datetime_set`             |   7 | RX        | Set the RTC date and time.                                                                                                                   |
-|         0x140 | `datetime_get`             |   0 | RX        | Request the RTC date and time.                                                                                                               |
-|         0x160 | `datetime_get_response`    |   7 | TX        | Response to `datetime_get`.                                                                                                                  |
-|         0x180 | `rgb_led_set`              |   3 | RX        | Set the on-board RGB LED colour.                                                                                                             |
-|         0x3C0 | `version_get`              |   0 | RX        | Request the firmware version.                                                                                                                |
-|         0x3E0 | `version_get_response`     |   4 | TX        | Response to `version_get`: major, minor, patch and identifier.                                                                               |
+| Base ID (hex) | Message                    | DLC | Direction | Description                                                                                                                                         |
+|--------------:|----------------------------|----:|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|          0x20 | `state`                    |   4 | TX        | Periodic system state, fault byte and DRV8873S fault/diag registers.                                                                                |
+|          0x40 | `command_brushed`          |   6 | RX        | Control mode, enable, clear faults and muxed setpoint (see [3.2 Muxed Setpoint (`command_brushed`)](#32-muxed-setpoint-command_brushed)).           |
+|          0x60 | `command_brushed_zero`     |   1 | RX        | Software zero of the position reference.                                                                                                            |
+|          0x80 | `sensor`                   |   8 | TX        | IPROPI current sense count, encoder raw count and unwrapped position.                                                                               |
+|          0xA0 | `controls_diagnostic`      |   8 | TX        | Control loop internals: torque/velocity/position errors and duty command.                                                                           |
+|          0xC0 | `controls_config_set`      |   8 | RX        | Set closed loop PID gains for a muxed cascade stage (see [3.3 Muxed PID Gains (`controls_config_*`)](#33-muxed-pid-gains-controls_config_)).        |
+|          0xE0 | `controls_config_get`      |   2 | RX        | Request PID gains for a cascade stage.                                                                                                              |
+|         0x100 | `controls_config_response` |   8 | TX        | Response to `controls_config_get`.                                                                                                                  |
+|         0x120 | `encoder_config_set`       |   4 | RX        | Set the quadrature encoder counts-per-revolution (see [3.4 Encoder Configuration (`encoder_config_*`)](#34-encoder-configuration-encoder_config_)). |
+|         0x140 | `encoder_config_get`       |   4 | RX        | Request the encoder mode and counts-per-revolution.                                                                                                 |
+|         0x160 | `encoder_config_response`  |   4 | TX        | Response to `encoder_config_get`.                                                                                                                   |
+|         0x180 | `datetime_set`             |   7 | RX        | Set the RTC date and time.                                                                                                                          |
+|         0x1A0 | `datetime_get`             |   0 | RX        | Request the RTC date and time.                                                                                                                      |
+|         0x1C0 | `datetime_get_response`    |   7 | TX        | Response to `datetime_get`.                                                                                                                         |
+|         0x1E0 | `rgb_led_set`              |   3 | RX        | Set the on-board RGB LED colour.                                                                                                                    |
+|         0x3C0 | `version_get`              |   0 | RX        | Request the firmware version.                                                                                                                       |
+|         0x3E0 | `version_get_response`     |   4 | TX        | Response to `version_get`: major, minor, patch and identifier.                                                                                      |
 
 ### 3.2 Muxed Setpoint (`command_brushed`)
 
@@ -109,5 +113,25 @@ gains target:
 The gain slots occupy fixed frame positions regardless of the selected
 controller: `k_p` in bytes 2..3, `k_i` in bytes 4..5 and `k_d` in bytes 6..7.
 All gain signals are unsigned 16-bit with 0.001 scaling (range 0..65.535).
-`controls_config_response` echoes the requested `controller` value; unlisted
+`controls_config_response` echoes the requested `controller` value, unlisted
 selector values are ignored (no gain change, no response).
+
+### 3.4 Encoder Configuration (`encoder_config_*`)
+
+`encoder_config_set` adjusts the quadrature encoder counts-per-revolution
+(`quadrature_count`, unsigned 16-bit, counts) used for the counts to radians
+conversion. `encoder_config_get` is answered with an `encoder_config_response`
+reporting the active encoder `mode` and counts-per-revolution:
+
+| `mode` | Encoder backend                   |
+|-------:|-----------------------------------|
+|      0 | AB quadrature (relative) encoder  |
+|      1 | AS5047P magnetic absolute encoder |
+
+The `mode` is read-only: the backend is selected at compile time (it requires
+direct pin mode configuration) and cannot be changed over CAN. A
+`quadrature_count` set request is only honoured in quadrature mode and only at
+standstill. Applying a new counts-per-revolution re-zeroes the position
+reference (recalibration semantics). Requests in absolute mode, at speed, or
+with a `quadrature_count` of 0 are dropped. In absolute mode the response
+reports a `quadrature_count` of 0 (no quadrature configuration exists).
