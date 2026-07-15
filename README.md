@@ -73,7 +73,7 @@ MC Brushed, **RX** = received by MC Brushed.
 |          0xE0 | `controls_config_get`      |   2 | RX        | Request PID gains for a cascade stage.                                                                                                              |
 |         0x100 | `controls_config_response` |   8 | TX        | Response to `controls_config_get`.                                                                                                                  |
 |         0x120 | `encoder_config_set`       |   4 | RX        | Set the quadrature encoder counts-per-revolution (see [3.4 Encoder Configuration (`encoder_config_*`)](#34-encoder-configuration-encoder_config_)). |
-|         0x140 | `encoder_config_get`       |   4 | RX        | Request the encoder mode and counts-per-revolution.                                                                                                 |
+|         0x140 | `encoder_config_get`       |   1 | RX        | Request the encoder mode and counts-per-revolution.                                                                                                 |
 |         0x160 | `encoder_config_response`  |   4 | TX        | Response to `encoder_config_get`.                                                                                                                   |
 |         0x180 | `datetime_set`             |   7 | RX        | Set the RTC date and time.                                                                                                                          |
 |         0x1A0 | `datetime_get`             |   0 | RX        | Request the RTC date and time.                                                                                                                      |

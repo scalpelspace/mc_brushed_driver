@@ -106,11 +106,8 @@ BO_ 288 encoder_config_set: 4 COMMANDER
  SG_ reserved1 : 11|5@1+ (1,0) [0|31] ""  MC_BRUSHED
  SG_ quadrature_count : 16|16@1+ (1,0) [0|65535] "count"  MC_BRUSHED
 
-BO_ 320 encoder_config_get: 4 REQUESTER
+BO_ 320 encoder_config_get: 1 REQUESTER
  SG_ node_id : 0|8@1+ (1,0) [0|255] ""  MC_BRUSHED
- SG_ mode : 8|3@1+ (1,0) [0|7] ""  MC_BRUSHED
- SG_ reserved0 : 11|5@1+ (1,0) [0|31] ""  MC_BRUSHED
- SG_ quadrature_count : 16|16@1+ (1,0) [0|65535] "count"  MC_BRUSHED
 
 BO_ 352 encoder_config_response: 4 MC_BRUSHED
  SG_ reserved0 : 0|8@1+ (1,0) [0|255] ""  REQUESTER
